@@ -1,10 +1,20 @@
 from simple_salesforce import Salesforce
+from dotenv import load_dotenv
 
+import os
 import time
 import random
 
+BASE_DIR='./'
 
-sf = Salesforce(username='dscruggs@iotexplorer17.mds', password='S@lesforce1', security_token='heGCIBkTBgjEf4vtpnL3WdwKs')
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+USERNAME=os.getenv('USERNAME')
+PASSWORD=os.getenv('PASSWORD')
+SECURITY_TOKEN=os.getenv('SECURITY_TOKEN')
+
+print("uname %s pw %s token %s" % (USERNAME, PASSWORD, SECURITY_TOKEN))
+
+sf = Salesforce(username=USERNAME, password=PASSWORD, security_token=SECURITY_TOKEN)
 print(sf);
 
 
